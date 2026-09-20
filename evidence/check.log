@@ -1,0 +1,181 @@
+bash: /data/ruiyang/miniconda3/lib/libtinfo.so.6: no version information available (required by bash)
+Using an isolated PulseAudio null sink (no audible-device validation).
+
+> light-mines@1.0.0 check
+> npm run typecheck && npm run lint && npm run test:unit && npm run build && npm run test:e2e
+
+
+> light-mines@1.0.0 typecheck
+> tsc --noEmit
+
+
+> light-mines@1.0.0 lint
+> eslint .
+
+
+> light-mines@1.0.0 test:unit
+> vitest run
+
+
+ RUN  v5.0.1 /data/ruiyang/code/github/whyiug/minesweeper
+
+
+ Test Files  6 passed (6)
+      Tests  138 passed (138)
+   Start at  23:22:14
+   Duration  3.62s (tests 91%, transform 6%, import 2%, worker 1%)
+
+
+> light-mines@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.0 building client environment for production...
+transforming...
+✓ 40 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.69 kB │ gzip:  0.48 kB
+dist/assets/index-A2OJ-VTg.css   22.74 kB │ gzip:  6.22 kB
+dist/assets/index-lY-Fopk5.js   261.48 kB │ gzip: 83.13 kB
+
+✓ built in 157ms
+
+> light-mines@1.0.0 test:e2e
+> playwright test
+
+[WebServer] (node:3934277) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 117 tests using 2 workers
+
+(node:3934528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:3934529) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    2 [chromium] › tests/e2e/input.spec.ts:40:1 › mouse right-click, Shift-click and Ctrl-click each submit one flag action without starting play (1.7s)
+  ✓    1 [chromium] › tests/e2e/game.spec.ts:5:1 › four presets, first-click area and hidden accessibility boundary (2.5s)
+  ✓    3 [chromium] › tests/e2e/input.spec.ts:57:1 › press feedback is immediate, release commits, and dragging out cancels (1.0s)
+  ✓    4 [chromium] › tests/e2e/game.spec.ts:20:1 › changing rules during play requires explicit new-game choice and cancel preserves board (1.1s)
+  ✓    5 [chromium] › tests/e2e/input.spec.ts:73:1 › single chord previews eligible neighbors and submits on release (1.1s)
+  ✓    7 [chromium] › tests/e2e/input.spec.ts:88:1 › a double click that opens a number does not accidentally chord; keyboard activation then chords once (1.5s)
+  ✓    6 [chromium] › tests/e2e/game.spec.ts:34:1 › wrong flag causes loss in both single and atomic auto modes; terminal is frozen (1.9s)
+  ✓    8 [chromium] › tests/e2e/input.spec.ts:98:1 › two pointer clicks on a preexisting number chord in double mode (1.3s)
+  ✓   10 [chromium] › tests/e2e/input.spec.ts:104:1 › grid has one tab stop, arrow navigation, F flags and Space reveals (865ms)
+  ✓   11 [chromium] › tests/e2e/input.spec.ts:123:1 › settings keeps keyboard focus inside its dialog and Escape restores the trigger without applying drafts (868ms)
+  ✓    9 [chromium] › tests/e2e/game.spec.ts:52:1 › winning requires all safe cells and exposes result without moving board (3.0s)
+  ✓   12 [chromium] › tests/e2e/input.spec.ts:146:1 › active-game mode changes require an explicit restart and cancellation preserves the board (1.1s)
+  ✓   13 [chromium] › tests/e2e/game.spec.ts:67:1 › animations never postpone committed cells; immediate restart drops old animation work (1.4s)
+  ✓   14 [chromium] › tests/e2e/input.spec.ts:160:1 › hidden grid labels expose only coordinates and cover state (852ms)
+  ✓   15 [chromium] › tests/e2e/game.spec.ts:82:1 › settings cancel has no effect, sound defaults off, visible timer is optional (1.3s)
+  ✓   16 [chromium] › tests/e2e/input.spec.ts:171:1 › assistive-style detail-zero activation works immediately after idle scroll cleanup (860ms)
+  ✓   17 [chromium] › tests/e2e/game.spec.ts:98:1 › time is measured from clock differences, continues through visibility, flags do not start it (975ms)
+  ✓   18 [chromium] › tests/e2e/input.spec.ts:180:1 › narrow touch emulation uses real touchscreen tap for reveal and permanent flag-mode toggle (1.8s)
+  ✓   19 [chromium] › tests/e2e/presentation.spec.ts:3:1 › real Web Audio initializes only on opt-in and muted actions create no voices (1.4s)
+  ✓   20 [chromium] › tests/e2e/input.spec.ts:200:1 › synthetic touch long press flags once and release never reveals (1.5s)
+  ✓   21 [chromium] › tests/e2e/presentation.spec.ts:37:1 › small laptop fits intermediate board and chord controls; changing size preserves the game (1.3s)
+  ✓   22 [chromium] › tests/e2e/input.spec.ts:213:3 › synthetic touch movement cancels pending long press and release (1.1s)
+  ✓   24 [chromium] › tests/e2e/input.spec.ts:213:3 › synthetic touch scroll cancels pending long press and release (1.2s)
+  ✓   23 [chromium] › tests/e2e/presentation.spec.ts:54:1 › timer ticks do not rerender cells or accumulate decorative nodes (2.4s)
+  ✓   25 [chromium] › tests/e2e/input.spec.ts:213:3 › synthetic touch pointercancel cancels pending long press and release (1.2s)
+  ✓   27 [chromium] › tests/e2e/input.spec.ts:213:3 › synthetic touch lostpointercapture cancels pending long press and release (1.2s)
+  ✓   28 [chromium] › tests/e2e/input.spec.ts:213:3 › synthetic touch second-finger cancels pending long press and release (1.2s)
+  ✓   26 [chromium] › tests/e2e/storage.spec.ts:85:1 › playing, toggling settings, and winning do not write any persistent state (3.2s)
+  ✓   29 [chromium] › tests/e2e/input.spec.ts:231:1 › expert narrow touch board scrolls locally and preserves usable cells (1.4s)
+(node:3937262) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   30 [chromium] › tests/e2e/storage.spec.ts:103:1 › an active win saves the selected nickname once, including repeated save activation (2.9s)
+  ✓   31 [firefox] › tests/e2e/game.spec.ts:5:1 › four presets, first-click area and hidden accessibility boundary (3.2s)
+  ✓   33 [firefox] › tests/e2e/game.spec.ts:20:1 › changing rules during play requires explicit new-game choice and cancel preserves board (1.2s)
+  ✓   32 [chromium] › tests/e2e/storage.spec.ts:126:1 › refresh retains only an explicitly saved score and resets game and settings (3.7s)
+  ✓   35 [chromium] › tests/e2e/storage.spec.ts:158:1 › a disabled leaderboard performs no storage access across gameplay and panels (1.4s)
+  ✓   34 [firefox] › tests/e2e/game.spec.ts:34:1 › wrong flag causes loss in both single and atomic auto modes; terminal is frozen (1.8s)
+  ✓   36 [chromium] › tests/e2e/storage.spec.ts:178:1 › finishing a game while the leaderboard is disabled neither accesses storage nor offers saving (2.9s)
+  ✓   37 [firefox] › tests/e2e/game.spec.ts:52:1 › winning requires all safe cells and exposes result without moving board (3.4s)
+  ✓   39 [firefox] › tests/e2e/game.spec.ts:67:1 › animations never postpone committed cells; immediate restart drops old animation work (1.3s)
+  ✓   38 [chromium] › tests/e2e/storage.spec.ts:192:1 › a backward clock can finish a game but makes the victory ineligible for the leaderboard (2.7s)
+  ✓   40 [firefox] › tests/e2e/game.spec.ts:82:1 › settings cancel has no effect, sound defaults off, visible timer is optional (1.3s)
+  ✓   41 [chromium] › tests/e2e/storage.spec.ts:208:1 › corrupted JSON is reported without a crash, rewrite, or blocked gameplay (918ms)
+  ✓   42 [firefox] › tests/e2e/game.spec.ts:98:1 › time is measured from clock differences, continues through visibility, flags do not start it (781ms)
+  ✓   43 [chromium] › tests/e2e/storage.spec.ts:224:1 › storage access denied by the browser remains an optional feature failure (1.0s)
+  ✓   44 [firefox] › tests/e2e/input.spec.ts:40:1 › mouse right-click, Shift-click and Ctrl-click each submit one flag action without starting play (1.3s)
+  ✓   46 [firefox] › tests/e2e/input.spec.ts:57:1 › press feedback is immediate, release commits, and dragging out cancels (917ms)
+  ✓   45 [chromium] › tests/e2e/storage.spec.ts:239:1 › a denied score write shows a useful message and still allows a fresh game (2.8s)
+  ✓   47 [firefox] › tests/e2e/input.spec.ts:73:1 › single chord previews eligible neighbors and submits on release (1.8s)
+  ✓   49 [firefox] › tests/e2e/input.spec.ts:88:1 › a double click that opens a number does not accidentally chord; keyboard activation then chords once (1.5s)
+  ✓   50 [firefox] › tests/e2e/input.spec.ts:98:1 › two pointer clicks on a preexisting number chord in double mode (1.3s)
+  ✓   51 [firefox] › tests/e2e/input.spec.ts:104:1 › grid has one tab stop, arrow navigation, F flags and Space reveals (720ms)
+  ✓   48 [chromium] › tests/e2e/storage.spec.ts:254:1 › manual and automatic wins appear in distinct leaderboard groups (4.9s)
+  ✓   52 [firefox] › tests/e2e/input.spec.ts:123:1 › settings keeps keyboard focus inside its dialog and Escape restores the trigger without applying drafts (842ms)
+  ✓   54 [firefox] › tests/e2e/input.spec.ts:146:1 › active-game mode changes require an explicit restart and cancellation preserves the board (1.1s)
+  ✓   55 [firefox] › tests/e2e/input.spec.ts:160:1 › hidden grid labels expose only coordinates and cover state (723ms)
+  ✓   56 [firefox] › tests/e2e/input.spec.ts:171:1 › assistive-style detail-zero activation works immediately after idle scroll cleanup (682ms)
+  ✓   53 [chromium] › tests/e2e/storage.spec.ts:277:1 › clearing scores removes only the leaderboard key after explicit confirmation (3.0s)
+(node:3939691) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   57 [firefox] › tests/e2e/input.spec.ts:180:1 › narrow touch emulation uses real touchscreen tap for reveal and permanent flag-mode toggle (1.4s)
+  ✓   58 [firefox] › tests/e2e/presentation.spec.ts:3:1 › real Web Audio initializes only on opt-in and muted actions create no voices (2.2s)
+  ✓   59 [firefox] › tests/e2e/input.spec.ts:200:1 › synthetic touch long press flags once and release never reveals (2.1s)
+  ✓   61 [firefox] › tests/e2e/input.spec.ts:213:3 › synthetic touch movement cancels pending long press and release (1.1s)
+  ✓   60 [firefox] › tests/e2e/presentation.spec.ts:37:1 › small laptop fits intermediate board and chord controls; changing size preserves the game (1.4s)
+  ✓   62 [firefox] › tests/e2e/input.spec.ts:213:3 › synthetic touch scroll cancels pending long press and release (1.0s)
+  ✓   64 [firefox] › tests/e2e/input.spec.ts:213:3 › synthetic touch pointercancel cancels pending long press and release (1.0s)
+  ✓   63 [firefox] › tests/e2e/presentation.spec.ts:54:1 › timer ticks do not rerender cells or accumulate decorative nodes (2.2s)
+  ✓   65 [firefox] › tests/e2e/input.spec.ts:213:3 › synthetic touch lostpointercapture cancels pending long press and release (994ms)
+  ✓   67 [firefox] › tests/e2e/input.spec.ts:213:3 › synthetic touch second-finger cancels pending long press and release (1.0s)
+  ✓   68 [firefox] › tests/e2e/input.spec.ts:231:1 › expert narrow touch board scrolls locally and preserves usable cells (1.3s)
+  ✓   66 [firefox] › tests/e2e/storage.spec.ts:85:1 › playing, toggling settings, and winning do not write any persistent state (3.6s)
+(node:3940898) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   69 [firefox] › tests/e2e/storage.spec.ts:103:1 › an active win saves the selected nickname once, including repeated save activation (3.6s)
+  ✓   70 [webkit] › tests/e2e/game.spec.ts:5:1 › four presets, first-click area and hidden accessibility boundary (3.6s)
+  ✓   72 [webkit] › tests/e2e/game.spec.ts:20:1 › changing rules during play requires explicit new-game choice and cancel preserves board (2.4s)
+  ✓   71 [firefox] › tests/e2e/storage.spec.ts:126:1 › refresh retains only an explicitly saved score and resets game and settings (4.3s)
+  ✓   74 [firefox] › tests/e2e/storage.spec.ts:158:1 › a disabled leaderboard performs no storage access across gameplay and panels (1.6s)
+  ✓   73 [webkit] › tests/e2e/game.spec.ts:34:1 › wrong flag causes loss in both single and atomic auto modes; terminal is frozen (3.6s)
+  ✓   75 [firefox] › tests/e2e/storage.spec.ts:178:1 › finishing a game while the leaderboard is disabled neither accesses storage nor offers saving (3.4s)
+  ✓   77 [firefox] › tests/e2e/storage.spec.ts:192:1 › a backward clock can finish a game but makes the victory ineligible for the leaderboard (3.3s)
+  ✓   76 [webkit] › tests/e2e/game.spec.ts:52:1 › winning requires all safe cells and exposes result without moving board (7.4s)
+  ✓   78 [firefox] › tests/e2e/storage.spec.ts:208:1 › corrupted JSON is reported without a crash, rewrite, or blocked gameplay (1.4s)
+  ✓   80 [firefox] › tests/e2e/storage.spec.ts:224:1 › storage access denied by the browser remains an optional feature failure (963ms)
+  ✓   79 [webkit] › tests/e2e/game.spec.ts:67:1 › animations never postpone committed cells; immediate restart drops old animation work (2.6s)
+  ✓   81 [firefox] › tests/e2e/storage.spec.ts:239:1 › a denied score write shows a useful message and still allows a fresh game (3.4s)
+  ✓   82 [webkit] › tests/e2e/game.spec.ts:82:1 › settings cancel has no effect, sound defaults off, visible timer is optional (2.4s)
+  ✓   84 [webkit] › tests/e2e/game.spec.ts:98:1 › time is measured from clock differences, continues through visibility, flags do not start it (2.2s)
+  ✓   85 [webkit] › tests/e2e/input.spec.ts:40:1 › mouse right-click, Shift-click and Ctrl-click each submit one flag action without starting play (2.5s)
+  ✓   83 [firefox] › tests/e2e/storage.spec.ts:254:1 › manual and automatic wins appear in distinct leaderboard groups (6.2s)
+  ✓   86 [webkit] › tests/e2e/input.spec.ts:57:1 › press feedback is immediate, release commits, and dragging out cancels (2.4s)
+  ✓   87 [firefox] › tests/e2e/storage.spec.ts:277:1 › clearing scores removes only the leaderboard key after explicit confirmation (3.8s)
+  ✓   88 [webkit] › tests/e2e/input.spec.ts:73:1 › single chord previews eligible neighbors and submits on release (2.6s)
+(node:3943057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   89 [webkit] › tests/e2e/input.spec.ts:88:1 › a double click that opens a number does not accidentally chord; keyboard activation then chords once (3.1s)
+  ✓   90 [webkit] › tests/e2e/presentation.spec.ts:3:1 › real Web Audio initializes only on opt-in and muted actions create no voices (3.0s)
+  ✓   91 [webkit] › tests/e2e/input.spec.ts:98:1 › two pointer clicks on a preexisting number chord in double mode (2.9s)
+  ✓   92 [webkit] › tests/e2e/presentation.spec.ts:37:1 › small laptop fits intermediate board and chord controls; changing size preserves the game (3.2s)
+  ✓   93 [webkit] › tests/e2e/input.spec.ts:104:1 › grid has one tab stop, arrow navigation, F flags and Space reveals (2.2s)
+  ✓   95 [webkit] › tests/e2e/input.spec.ts:123:1 › settings keeps keyboard focus inside its dialog and Escape restores the trigger without applying drafts (2.0s)
+  ✓   94 [webkit] › tests/e2e/presentation.spec.ts:54:1 › timer ticks do not rerender cells or accumulate decorative nodes (3.4s)
+  ✓   96 [webkit] › tests/e2e/input.spec.ts:146:1 › active-game mode changes require an explicit restart and cancellation preserves the board (2.4s)
+  ✓   98 [webkit] › tests/e2e/input.spec.ts:160:1 › hidden grid labels expose only coordinates and cover state (2.0s)
+  ✓   97 [webkit] › tests/e2e/storage.spec.ts:85:1 › playing, toggling settings, and winning do not write any persistent state (4.7s)
+  ✓   99 [webkit] › tests/e2e/input.spec.ts:171:1 › assistive-style detail-zero activation works immediately after idle scroll cleanup (2.0s)
+  ✓  101 [webkit] › tests/e2e/input.spec.ts:180:1 › narrow touch emulation uses real touchscreen tap for reveal and permanent flag-mode toggle (3.7s)
+  ✓  102 [webkit] › tests/e2e/input.spec.ts:200:1 › synthetic touch long press flags once and release never reveals (2.2s)
+  ✓  100 [webkit] › tests/e2e/storage.spec.ts:103:1 › an active win saves the selected nickname once, including repeated save activation (7.9s)
+  ✓  103 [webkit] › tests/e2e/input.spec.ts:213:3 › synthetic touch movement cancels pending long press and release (2.2s)
+  ✓  105 [webkit] › tests/e2e/input.spec.ts:213:3 › synthetic touch scroll cancels pending long press and release (2.3s)
+  ✓  106 [webkit] › tests/e2e/input.spec.ts:213:3 › synthetic touch pointercancel cancels pending long press and release (2.2s)
+  ✓  107 [webkit] › tests/e2e/input.spec.ts:213:3 › synthetic touch lostpointercapture cancels pending long press and release (2.3s)
+  ✓  104 [webkit] › tests/e2e/storage.spec.ts:126:1 › refresh retains only an explicitly saved score and resets game and settings (8.6s)
+  ✓  108 [webkit] › tests/e2e/input.spec.ts:213:3 › synthetic touch second-finger cancels pending long press and release (2.3s)
+  ✓  109 [webkit] › tests/e2e/storage.spec.ts:158:1 › a disabled leaderboard performs no storage access across gameplay and panels (2.6s)
+  ✓  110 [webkit] › tests/e2e/input.spec.ts:231:1 › expert narrow touch board scrolls locally and preserves usable cells (3.5s)
+  ✓  111 [webkit] › tests/e2e/storage.spec.ts:178:1 › finishing a game while the leaderboard is disabled neither accesses storage nor offers saving (7.3s)
+  ✓  112 [webkit] › tests/e2e/storage.spec.ts:192:1 › a backward clock can finish a game but makes the victory ineligible for the leaderboard (7.3s)
+  ✓  113 [webkit] › tests/e2e/storage.spec.ts:208:1 › corrupted JSON is reported without a crash, rewrite, or blocked gameplay (2.1s)
+  ✓  114 [webkit] › tests/e2e/storage.spec.ts:224:1 › storage access denied by the browser remains an optional feature failure (2.1s)
+  ✓  115 [webkit] › tests/e2e/storage.spec.ts:239:1 › a denied score write shows a useful message and still allows a fresh game (7.2s)
+  ✓  116 [webkit] › tests/e2e/storage.spec.ts:254:1 › manual and automatic wins appear in distinct leaderboard groups (12.8s)
+  ✓  117 [webkit] › tests/e2e/storage.spec.ts:277:1 › clearing scores removes only the leaderboard key after explicit confirmation (7.8s)
+
+  117 passed (2.9m)

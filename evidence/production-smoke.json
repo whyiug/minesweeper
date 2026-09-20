@@ -1,0 +1,47 @@
+{
+  "checkedAt": "2026-09-20T15:16:13.292Z",
+  "browser": "153.0.8010.12",
+  "source": "local HTTP preview of production dist",
+  "defaultCells": 81,
+  "firstClickSafe": true,
+  "refreshStartsNewGame": true,
+  "defaultMuted": true,
+  "testSeedAbsentFromBundle": true,
+  "resourceResponses": [
+    {
+      "url": "http://127.0.0.1:4179/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4179/assets/index-A2OJ-VTg.css",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4179/assets/index-lY-Fopk5.js",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4179/icons/crystal.svg",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4179/",
+      "status": 200
+    },
+    {
+      "url": "http://127.0.0.1:4179/assets/index-A2OJ-VTg.css",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4179/assets/index-lY-Fopk5.js",
+      "status": 304
+    },
+    {
+      "url": "http://127.0.0.1:4179/icons/crystal.svg",
+      "status": 200
+    }
+  ],
+  "iconStatus": 200,
+  "pageErrors": [],
+  "deployed": false
+}

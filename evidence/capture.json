@@ -1,0 +1,16 @@
+{
+  "capturedAt": "2026-09-20T15:27:19.471Z",
+  "browser": "153.0.8010.12",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "mobileViewport": {
+    "width": 390,
+    "height": 844
+  },
+  "seed": 42,
+  "mode": "e2e only",
+  "pageErrors": [],
+  "note": "Actual implementation. Screenshots are visual evidence; interaction.webm is an automated recording, not physical-device validation."
+}

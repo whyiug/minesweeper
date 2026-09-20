@@ -1,0 +1,123 @@
+{
+  "measuredAt": "2026-09-20T15:12:09.575Z",
+  "host": {
+    "os": "linux 5.15.0-91-generic x64",
+    "cpu": "Intel(R) Xeon(R) Platinum 8336C CPU @ 2.30GHz",
+    "logicalCpus": 128,
+    "node": "v24.18.0",
+    "browser": "153.0.8010.12"
+  },
+  "ruleOnly": {
+    "scenario": "expert/auto, first reveal255, 1000 distinct seeds, no rendering",
+    "count": 1000,
+    "medianMs": 0.13219500000002427,
+    "p95Ms": 0.2776290000000472,
+    "maxMs": 2.368877999999995
+  },
+  "browser": {
+    "scenario": "Vite development e2e build, expert480 cells, synthetic accessible click, dispatch to second requestAnimationFrame; includes frame scheduling, not event-handler time or FPS",
+    "count": 40,
+    "medianMs": 33.5,
+    "p95Ms": 85,
+    "maxMs": 85.39999961853027,
+    "longTasksOver50ms": [
+      53,
+      50
+    ],
+    "cellCountAfter40Restarts": 480
+  },
+  "limits": [
+    "Shared Linux host; headless software browser; no CPU throttling.",
+    "No physical Mac, iPad, Safari or mobile-device performance measurement.",
+    "Timing reflects this run only, not a cross-device latency or 60 FPS guarantee."
+  ],
+  "contrast": {
+    "method": "WCAG sRGB relative luminance formula; explicit theme token pairs, opaque backgrounds; not a full accessibility conformance audit.",
+    "pairs": [
+      {
+        "name": "primary text",
+        "foreground": "#e8f1f9",
+        "background": "#20364d",
+        "ratio": 10.84
+      },
+      {
+        "name": "secondary text",
+        "foreground": "#a4b8cb",
+        "background": "#20364d",
+        "ratio": 6.07
+      },
+      {
+        "name": "board hint",
+        "foreground": "#a8c0d3",
+        "background": "#233c51",
+        "ratio": 6.07
+      },
+      {
+        "name": "number 1",
+        "foreground": "#1764a4",
+        "background": "#e5f1fa",
+        "ratio": 5.39
+      },
+      {
+        "name": "number 2",
+        "foreground": "#167258",
+        "background": "#e5f1fa",
+        "ratio": 5.11
+      },
+      {
+        "name": "number 3",
+        "foreground": "#b23d45",
+        "background": "#e5f1fa",
+        "ratio": 5.02
+      },
+      {
+        "name": "number 4",
+        "foreground": "#67429c",
+        "background": "#e5f1fa",
+        "ratio": 6.45
+      },
+      {
+        "name": "number 5",
+        "foreground": "#994225",
+        "background": "#e5f1fa",
+        "ratio": 5.79
+      },
+      {
+        "name": "number 6",
+        "foreground": "#08717d",
+        "background": "#e5f1fa",
+        "ratio": 4.99
+      },
+      {
+        "name": "number 7",
+        "foreground": "#394557",
+        "background": "#e5f1fa",
+        "ratio": 8.46
+      },
+      {
+        "name": "number 8",
+        "foreground": "#624e60",
+        "background": "#e5f1fa",
+        "ratio": 6.59
+      },
+      {
+        "name": "primary button",
+        "foreground": "#153d59",
+        "background": "#91cefa",
+        "ratio": 6.73
+      },
+      {
+        "name": "flag stroke",
+        "foreground": "#683d2d",
+        "background": "#f5c65c",
+        "ratio": 5.72
+      },
+      {
+        "name": "mine icon",
+        "foreground": "#243d52",
+        "background": "#ccdce8",
+        "ratio": 8.03
+      }
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "browser": "155.0",
+  "output": "isolated authenticated PulseAudio null sink; no hardware or listening validation",
+  "active": {
+    "events": [
+      "running"
+    ],
+    "constructors": 1,
+    "resumeCalls": 1,
+    "resumeResolved": 1,
+    "createdState": "suspended",
+    "oscillators": 1,
+    "stops": 1,
+    "state": "running",
+    "currentTime": 0.3221768707482993
+  },
+  "muted": {
+    "events": [
+      "running"
+    ],
+    "constructors": 1,
+    "resumeCalls": 1,
+    "resumeResolved": 1,
+    "createdState": "suspended",
+    "oscillators": 1,
+    "stops": 1,
+    "state": "running",
+    "currentTime": 0.47020408163265304
+  },
+  "mutedCreatedNoExtraVoices": true
+}
