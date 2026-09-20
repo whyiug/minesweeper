@@ -4,25 +4,96 @@
 
 项目使用 React、TypeScript、Vite 和 DOM 棋盘。没有账号、后端、数据库、广告、统计 SDK 或 LLM API。所有游戏规则在浏览器执行；刷新就是新局。
 
-## 本地运行
+## 环境准备、编译与启动
 
-使用 **Node.js 24.x**。当前工程核验环境为 Node.js **24.18.0**、npm **11.16.0**；`package.json` 固定 Node 主版本并锁定直接依赖，`package-lock.json` 固定依赖树。
+使用 **Git、Node.js 24.x 和随 Node 提供的 npm**。当前工程核验环境为 Node.js **24.18.0**、npm **11.16.0**；`package.json` 固定 Node 主版本并锁定直接依赖，`package-lock.json` 固定依赖树。运行游戏不需要数据库、API key、环境变量、Docker 或 GPU；Playwright 浏览器只在运行端到端测试时需要安装。
+
+### 获取源码与安装依赖
+
+首次从 GitHub 获取项目：
 
 ```bash
+git clone https://github.com/whyiug/minesweeper.git
+cd minesweeper
+node --version
+npm --version
 npm ci
+```
+
+如果已经在项目目录中，直接从 `node --version` 开始即可。使用 nvm 的机器可以先执行 `nvm install`、`nvm use`，它们读取仓库的 `.nvmrc` 并选择 Node 24；没有安装 nvm 时，使用自己的 Node 安装方式即可。`npm ci` 按 lockfile 安装依赖，首次安装需要能访问 npm 软件源。
+
+### 开发启动
+
+在项目根目录执行：
+
+```bash
 npm run dev
 ```
 
-打开终端显示的 `http://127.0.0.1:5173` 地址。开发服务器仅绑定本机；端口被占用时以终端实际地址为准。
+在**运行命令的那台电脑**上打开终端显示的地址，默认是 `http://127.0.0.1:5173`。修改源码后浏览器会自动更新。保持该终端运行，结束时按 `Ctrl+C` 停止本次服务。
 
-构建和本地预览：
+开发服务器仅绑定本机。默认端口被占用时，Vite 会尝试其他端口，以终端输出为准；需要固定端口时使用：
+
+```bash
+npm run dev -- --port 5173 --strictPort
+```
+
+`--strictPort` 会在端口被占用时直接报错。可选择其他空闲端口，不要为此停止他人的服务。
+
+### 编译正式产物
+
+在已执行 `npm ci` 的项目目录中运行：
 
 ```bash
 npm run build
+```
+
+该命令先检查 TypeScript 类型，再编译生成 `dist/`，其中包含 HTML、JS、CSS 和图标。编译完成后命令会退出，**不会启动网页服务**。`dist/` 是构建生成物，不提交到 Git；从 GitHub 克隆后需要自行构建，Vercel 也会按配置重新构建。
+
+### 启动正式产物预览
+
+构建成功后执行：
+
+```bash
 npm run preview
 ```
 
-`build` 输出 `dist/` 静态文件。`preview` 用于核验产物，不代表已经发布到 Vercel；不要直接双击 `dist/index.html` 代替 HTTP 预览。
+默认打开 `http://127.0.0.1:4173`，以终端实际输出为准。修改源码后，必须重新 `npm run build` 才会更新预览的产物。结束预览时按 `Ctrl+C`。
+
+需要固定预览端口时执行 `npm run preview -- --port 4173 --strictPort`。端到端测试也使用 4173，因此不要同时运行同端口预览和 `npm run test:e2e`；可先停止自己的预览，或将预览改为其他端口。
+
+`preview` 只用于本地核验，不是正式托管服务，也不代表已经发布到 Vercel。不要双击 `dist/index.html` 代替 HTTP 访问；正式静态部署见 [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md)。
+
+### 在远程服务器运行，从自己的电脑访问
+
+如果命令是在远程服务器执行，自己电脑上的 `127.0.0.1` 不会自动指向服务器。保留服务的回环地址绑定，使用 SSH 端口转发访问即可，无需开放公网端口。
+
+先在**服务器的项目目录**启动固定端口服务：
+
+```bash
+npm run dev -- --port 5173 --strictPort
+```
+
+然后在**自己电脑的另一个终端**运行，将 `your-user@your-server` 替换为日常 SSH 登录目标：
+
+```bash
+ssh -N -o ExitOnForwardFailure=yes -L 127.0.0.1:5173:127.0.0.1:5173 your-user@your-server
+```
+
+保持两个终端运行，在自己电脑的浏览器打开 `http://127.0.0.1:5173`。若自己电脑的 5173 已占用，可改为 `-L 127.0.0.1:15173:127.0.0.1:5173`，然后访问 `http://127.0.0.1:15173`。
+
+预览正式产物时，服务器运行 `npm run build` 和 `npm run preview -- --port 4173 --strictPort`，SSH 转发命令中的两个 `5173` 都改为 `4173`，本机浏览器访问 `http://127.0.0.1:4173`。结束后分别在服务器服务终端和本机 SSH 转发终端按 `Ctrl+C`，只停止自己启动的进程。
+
+### 常见启动问题
+
+| 现象 | 处理方式 |
+| --- | --- |
+| Node 版本不符合要求或依赖安装报 engine 错误 | 切换到 Node 24.x，再执行 `npm ci` |
+| 提示找不到 `vite` 或依赖包 | 确认当前目录含 `package.json`，先执行 `npm ci` |
+| 预览提示没有 `dist` | 先执行 `npm run build`，再运行 `npm run preview` |
+| 端口被占用 | 改用空闲端口，或停止自己启动的旧服务；同步调整浏览器地址与 SSH 转发端口 |
+| 远程服务器已启动，但本机浏览器无法打开 | 检查 SSH 转发是否仍在运行、服务器服务端口与转发目标是否一致 |
+| 修改源码后正式预览没有变化 | 重新执行 `npm run build`，再刷新预览页 |
 
 ## 怎么玩
 
@@ -86,7 +157,9 @@ LIGHT_MINES_WEBKIT_EXECUTABLE_PATH="$PWD/scripts/browser-env.sh" \
 | `npm run lint` | ESLint 检查 |
 | `npm run test:unit` | Vitest 规则、输入、存储、音效等单元 / 属性测试 |
 | `npm run test:e2e` | Playwright 浏览器交互测试 |
+| `npm run dev` | 启动开发服务，默认 `127.0.0.1:5173` |
 | `npm run build` | 类型检查并生成静态 `dist/` |
+| `npm run preview` | 预览已构建的 `dist/`，默认 `127.0.0.1:4173` |
 | `npm run check` | 依次执行类型、lint、单测、构建和浏览器测试 |
 
 实际执行结果和实现截图见 [`TEST_REPORT.md`](TEST_REPORT.md)。可重复的动效、音效和真机验收步骤见 [`docs/MANUAL_TESTS.md`](docs/MANUAL_TESTS.md)。截图用于检查视觉状态；音频模拟测试、静态截图、自动化 WebKit 都不能替代真实 Mac 触控板、Safari 和手机 / iPad 听感与触控验收。
