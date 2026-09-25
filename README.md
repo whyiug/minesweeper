@@ -4,6 +4,8 @@
 
 项目使用 React、TypeScript、Vite 和 DOM 棋盘。没有账号、后端、数据库、广告、统计 SDK 或 LLM API。所有游戏规则在浏览器执行；刷新就是新局。
 
+![轻扫雷游戏界面](docs/light-mines.png)
+
 ## 环境准备、编译与启动
 
 使用 **Git、Node.js 24.x 和随 Node 提供的 npm**。当前工程核验环境为 Node.js **24.18.0**、npm **11.16.0**；`package.json` 固定 Node 主版本并锁定直接依赖，`package-lock.json` 固定依赖树。运行游戏不需要数据库、API key、环境变量、Docker 或 GPU；Playwright 浏览器只在运行端到端测试时需要安装。
